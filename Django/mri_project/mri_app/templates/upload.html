@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload MRI Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color:rgb(38, 121, 216) ;
+            background: url('heart.jpg') no-repeat center center fixed; /* Replace 'background.jpg' with your actual image */
+            background-size: cover;
+        }
+        .form-container {
+            margin: auto;
+            margin-top: 30px;
+            width: 350px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: slideIn 1s ease-in-out;
+    text-shadow: 3px 3px 8px rgba(235, 222, 222, 0.7);
+}
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: black;
+            box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+        }
+        input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #f6f2f2;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="file"]:hover {
+            border-color: black;
+        }
+
+        form {
+            margin-top: 20px;
+            display: inline-block;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    margin-top: 20px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+}
+
+/* Card Styling */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2);
+}
+
+.card img {
+    border-radius: 15px 15px 0 0;
+}
+
+/* Info Box Styling */
+.info-box {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Background Colors */
+.description-box { background-color: #22c1c3; }
+.symptoms-box { background-color: chartreuse; }
+.advantages-box { background-color: palevioletred; }
+.disadvantages-box { background-color: #ee5253; }
+
+/* Typography */
+.info-box h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+    </style>
+</head>
+
+<body>
+    <h1>Heart Health Detection using Image Analysis</h1>
+    <h2>Upload MRI Image below</h2>
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    </div>
+    <!-- Learn More Button -->
+    <div class="row justify-content-center mt-4">
+        <a href="#heart-info" class="btn btn-custom">Learn More</a>
+    </div>
+
+    <!-- Heart Disease Detection Information Section -->
+    <div id="heart-info" class="mt-5">
+        <div class="row justify-content-center">
+            <!-- Description Box -->
+            <div class="col-md-6">
+                <div class="info-box description-box">
+                    <h2>Description</h2>
+                    <p>
+                        Heart disease detection using medical imaging involves analyzing echocardiograms, CT scans, and MRI images to identify abnormalities in heart structure and function. AI-driven analysis assists healthcare professionals in diagnosing cardiovascular conditions early, improving treatment outcomes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Symptoms Box -->
+            <div class="col-md-6">
+                <div class="info-box symptoms-box">
+                    <h2>Symptoms</h2>
+                    <p>
+                        Common indicators of heart disease include chest pain, shortness of breath, irregular heartbeat, and fatigue. AI-powered image analysis can detect early signs such as arterial blockages, reduced heart function, and structural anomalies before symptoms become severe.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <!-- Advantages Box -->
+            <div class="col-md-6">
+                <div class="info-box advantages-box">
+                    <h2>Advantages</h2>
+                    <p>
+                        AI-driven heart disease detection enhances accuracy in identifying cardiovascular risks. It reduces manual interpretation errors, enables early intervention, and assists cardiologists in making precise diagnoses through automated image analysis.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Challenges Box -->
+            <div class="col-md-6">
+                <div class="info-box disadvantages-box">
+                    <h2>Challenges</h2>
+                    <p>
+                        Challenges include ensuring high-quality imaging, variations in heart conditions across patients, and maintaining AI model reliability. Ethical concerns related to patient data privacy and the need for expert validation also remain critical.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

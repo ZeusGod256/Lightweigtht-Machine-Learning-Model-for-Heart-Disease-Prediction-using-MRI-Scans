@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prediction Result</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: rosybrown;
+            margin: 0;
+            padding: 0;
+            background: url('heart6.jpeg') no-repeat center center fixed; /* Replace 'background.jpg' with your actual image */
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-family: 'Times New Roman', serif;
+            color: black;
+            margin-top: 50px;
+        }
+
+        /* Result container */
+        .result-container {
+            margin: auto;
+            margin-top: 30px;
+            width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: 15px auto;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 25px;
+            color: black;
+            margin-top: 10px;
+        }
+
+        /* Upload another image link */
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background-color: darkgray;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Prediction Result</h1>
+    <div class="result-container">
+        <img src="data:image/png;base64,{{ image_data }}" alt="Uploaded Image" width="300">
+        <h2>Result: {{ result }}</h2>
+        <a href="/">Upload Another Image</a>
+    </div>
+</body>
+
+</html>
